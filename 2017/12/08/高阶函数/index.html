@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="高阶函数1、filter()函数：用于过滤序列，“筛选”函数，  和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。  例如：在一个list中，删掉偶数，只保留奇数    代码：def is_odd(n):…     return n%2==1…list(f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/12/08/高阶函数/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="高阶函数1、filter()函数：用于过滤序列，“筛选”函数，  和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。  例如：在一个list中，删掉偶数，只保留奇数    代码：def is_odd(n):…     return n%2==1…list(f">
+<meta property="og:updated_time" content="2017-12-08T12:40:35.251Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="高阶函数1、filter()函数：用于过滤序列，“筛选”函数，  和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。  例如：在一个list中，删掉偶数，只保留奇数    代码：def is_odd(n):…     return n%2==1…list(f">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-高阶函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/08/高阶函数/" class="article-date">
+  <time datetime="2017-12-08T12:40:35.232Z" itemprop="datePublished">2017-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>1、filter()函数：用于过滤序列，“筛选”函数，</p>
+<blockquote>
+<p>和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。</p>
+</blockquote>
+<p>例如：在一个list中，删掉偶数，只保留奇数</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>代码：def is_odd(n):<br>…     return n%2==1<br>…<br>list(filter(is_odd,[1,2,4,5,6,9,10,15]))<br>结果：[1, 5, 9, 15]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>例如：把一个序列中的空字符串删掉</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>代码：def not_empty(s):<br>…     return s and s.strip()<br>…<br>list(filter(not_empty,[‘A’,’’,’B’,’C’,None,’  ‘]))<br>结果：[‘A’, ‘B’, ‘C’]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>例如：求素数<br>计算素数的一个方法是埃氏筛法，它的算法理解起来非常简单：<br>首先，列出从2开始的所有自然数，构造一个序列：<br>2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, …<br>取序列的第一个数2，它一定是素数，然后用2把序列的2的倍数筛掉：<br>3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, …<br>取新序列的第一个数3，它一定是素数，然后用3把序列的3的倍数筛掉：<br>5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, …<br>取新序列的第一个数5，然后用5把序列的5的倍数筛掉：<br>7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, …<br>不断筛下去，就可以得到所有的素数。<br>用Python来实现这个算法，可以先构造一个从3开始的奇数序列：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def _odd_iter():<br>…     n=1<br>…     while True:<br>…             n=n+2<br>…             yield n<br>…<br>def _not_divisible(n):<br>…     return lambda x:x%n&gt;0<br>…<br>def primes():<br>…     yield 2<br>…     it=_odd_iter()#初始序列<br>…     while True:<br>…             n=next(it)#返回序列的第一数<br>…             yield n<br>…             it=filter(_not_divisible(n),it)#构造新序列<br>…</p>
+<p>for n in primes():<br>…     if n&lt;1000:<br>…             print(n)<br>…     else:<br>…             break<br>…</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>filter()的作用是从一个序列中筛出符合条件的元素。由于filter()使用了惰性计算，所以只有在取filter()结果的时候，才会真正筛选并每次返回下一个筛出的元素。</p>
+<p>2、sorted()排序算法</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>sorted([36,5,-12,9,-21])<br>结果：[-21, -12, 5, 9, 36]<br>sorted([‘bob’,’about’,’Zoo’,’Credit’],key=str.lower,reverse=True)<br>结果：[‘Zoo’, ‘Credit’, ‘bob’, ‘about’]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> 例如：用一组tuple表示学生名字和成绩，sorted()对上述列表分别按名字和成绩排序 </p>
+<blockquote>
+<p>!/usr/bin/env python3</p>
+<p>​     - <em> - coding :utf-8 -</em>-</p>
+<p>from operator import itemgetter</p>
+<p>L=[‘bob’,’about’,’Zoo’,’Credit’]print(sorted(L))</p>
+<p>print(sorted(L, key=str.lower))</p>
+<p>students=[(‘Bob’,75),(‘Adam’,92),(‘Bart’,66),(‘Lisa’,88)]</p>
+<p>print(sorted(students, key=itemgetter(0)))</p>
+<p>print(sorted(students, key=lambda t: t[1]))</p>
+<p>print(sorted(students,key=itemgetter(1),reverse=True))</p>
+</blockquote>
+<p>结果：[‘Credit’, ‘Zoo’, ‘about’, ‘bob’]<br>[‘about’, ‘bob’, ‘Credit’, ‘Zoo’]<br>[(‘Adam’, 92), (‘Bart’, 66), (‘Bob’, 75), (‘Lisa’, 88)]<br>[(‘Bart’, 66), (‘Bob’, 75), (‘Lisa’, 88), (‘Adam’, 92)]<br>[(‘Adam’, 92), (‘Lisa’, 88), (‘Bob’, 75), (‘Bart’, 66)]</p>
+<h3 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h3><p>函数返回的是一个函数，返回一个函数时，牢记该函数并未执行，返回函数中不要引用任何可能会变化的变量。</p>
+<p>如：求和</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def calc_sum(<em>args):<br>…     ax=0<br>…     for n in args:<br>…             ax=ax+n<br>…     return ax<br>…<br>def lazy_sum(</em>args):<br>…     def sum():<br>…             ax=0<br>…             for n in args:<br>…                     ax=ax+n<br>…             return ax<br>…     return sum<br>…</p>
+<p>f=lazy_sum(1,3,5,7,9)<br>f<br>结果返回求和函数：</p>
+<p><function lazy_sum.<locals="">.sum at 0x00000254EB212E18&gt;</function></p>
+<p> f()<br>调用函数f时，结果：25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>注意：使用闭包结构时， 返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>lambda x:x<em>x实际上就是def f(x):return x </em> x</p>
+<p>关键字lambda表示匿名函数，冒号前面的x表示函数参数。</p>
+<p>匿名函数有个限制，就是只能有一个表达式，不用写return，返回值就是该表达式的结果。<br>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数.</p>
+<p>如把代码：def is_odd(n):</p>
+<p>​                        return n % 2 == 1</p>
+<p>​           L = list(filter(is_odd, range(1, 20)))</p>
+<p>改为匿名函数：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>L=list(filter(lambda n:n%2==1,range(1,20)))<br>print(L)<br>[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>注：Python对匿名函数的支持有限，只有一些简单的情况下可以使用匿名函数。</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>函数也是一个对象，而且函数对象可以被赋值给变量，所以，通过变量也能调用该函数。</p>
+<p>函数对象有一个<strong>name</strong>属性，可以拿到函数的名字</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def now():<br>…     print(‘2015-12-3’)<br>…<br>f=now<br>f()<br>结果：2015-12-3</p>
+<p>now. <strong>name</strong><br>‘now’<br>f.  <strong>name</strong><br>‘now’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>我们要增强now()函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改now()函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def log(func):<br>…     def wrapper(<em>args,**kw):<br>…             print(‘call %s():’ % func.<strong>name</strong>)<br>…             return func(</em>args,**kw)<br>…     return wrapper<br>…</p>
+<p>@log<br>… def now():<br>…     print(‘2002-12-3’)<br>…<br>now()<br>结果：call now():<br>​           2002-12-3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>调用now()函数，不仅会运行now()函数本身，还会在运行now()函数前打印一行日志。@log放到now()函数的定义处，相当于now=log(now)。由于log()是一个decorator，返回一个函数，所以，原来的now()函数仍然存在，只是现在同名的now变量指向了新的函数，于是调用now()将执行新函数，即在log()函数中返回的wrapper()函数。wrapper()函数的参数定义是(<em>args, *</em>kw)，因此，wrapper()函数可以接受任意参数的调用。在wrapper()函数内，首先打印日志，再紧接着调用原始函数。</p>
+<p>例如：要自定义log的文本。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def log(text):<br>…     def decorator(func):<br>…             def wrapper(<em>args,**kw):<br>…                     print(‘% s %s():’% (text,func.<strong>name</strong>))<br>…                     return func(</em>args,**kw)<br>…             return wrapper<br>…     return decorator<br>…<br>@log(‘execute’)<br>… def now():<br>…     print(‘2015-2-25’)<br>…<br>now()<br>结果：execute now():<br>​       2015-2-25</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>3层嵌套的decorator的用法与和两层嵌套的decorator相比，3层嵌套的效果是这样的：now = log(‘execute’)(now)首先执行log(‘execute’)，返回的是decorator函数，再调用返回的函数，参数是now函数，返回值最终是wrapper函数。<br>以上两种decorator的定义都没有问题，但还差最后一步。因为我们讲了函数也是对象，它有<strong>name</strong>等属性，但你去看经过decorator装饰之后的函数，它们的<strong>name</strong>已经从原来的’now’变成了’wrapper’</p>
+<h3 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h3><p>functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。</p>
+<p>创建偏函数时，实际上可以接收函数对象、<em>args和<strong>kw这3个参数，当传入：<br>int2 = functools.partial(int, base=2)实际上固定了int()函数的关键字参数base，也就是：int2(‘10010’)相当于：kw = { ‘base’: 2 }<br>int(‘10010’, </strong>kw)当传入：max2 = functools.partial(max, 10)<br>实际上会把10作为</em>args的一部分自动加到左边，也就是max2(5, 6, 7)相当于：args = (10, 5, 6, 7)，max( *args)结果为10。</p>
+<p>例如：</p>
+<p>!/usr/bin/env python3</p>
+<p>-<em> - coding: utf-8 -</em>-</p>
+<p>import functools</p>
+<p>int2 = functools.partial(int, base=2)</p>
+<p>print(‘1000000 =’, int2(‘1000000’))</p>
+<p>print(‘1010101 =’, int2(‘1010101’))</p>
+<p>结果：1000000 = 64<br>​       1010101 = 85</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/08/高阶函数/" data-id="cjb1zwnzj0005kkw80ifywr78" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/08/模块/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/04/python/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/09/面向对象的高级编程/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/09/面向对象的编程/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/08/模块/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/08/高阶函数/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/04/python/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
